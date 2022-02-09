@@ -48,6 +48,7 @@ type WebhooksListObject struct {
 type WebhooksCreateOption struct {
 	Name    string `url:"name,omitempty"`    // Description:"Name displayed in the administration console of webhooks",ExampleValue:"My Webhook"
 	Project string `url:"project,omitempty"` // Description:"The key of the project that will own the webhook",ExampleValue:"my_project"
+	Secret  string `url:"secret,omitempty"`  // Description:"If provided, secret will be used as the key to generate the HMAC hex (lowercase) digest value in the 'X-Sonar-Webhook-HMAC-SHA256' header",ExampleValue:"your_secret"
 	Url     string `url:"url,omitempty"`     // Description:"Server endpoint that will receive the webhook payload, for example 'http://my_server/foo'. If HTTP Basic authentication is used, HTTPS is recommended to avoid man in the middle attacks. Example: 'https://myLogin:myPassword@my_server/foo'",ExampleValue:"https://www.my-webhook-listener.com/sonar"
 }
 
@@ -162,6 +163,7 @@ func (s *WebhooksService) List(opt *WebhooksListOption) (v *WebhooksListObject, 
 
 type WebhooksUpdateOption struct {
 	Name    string `url:"name,omitempty"`    // Description:"new name of the webhook",ExampleValue:"My Webhook"
+	Secret  string `url:"secret,omitempty"`  // Description:"If provided, secret will be used as the key to generate the HMAC hex (lowercase) digest value in the 'X-Sonar-Webhook-HMAC-SHA256' header",ExampleValue:"your_secret"
 	Url     string `url:"url,omitempty"`     // Description:"new url to be called by the webhook",ExampleValue:"https://www.my-webhook-listener.com/sonar"
 	Webhook string `url:"webhook,omitempty"` // Description:"The key of the webhook to be updated,auto-generated value can be obtained through api/webhooks/create or api/webhooks/list",ExampleValue:"my_project"
 }

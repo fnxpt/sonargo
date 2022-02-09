@@ -52,6 +52,7 @@ type History struct {
 
 type MeasuresComponentOption struct {
 	AdditionalFields string `url:"additionalFields,omitempty"` // Description:"Comma-separated list of additional fields that can be returned in the response.",ExampleValue:"periods,metrics"
+	Branch           string `url:"branch,omitempty"`           // Description:"Branch key. Not available in the community edition.",ExampleValue:"feature/my_branch"
 	Component        string `url:"component,omitempty"`        // Description:"Component key",ExampleValue:"my_project"
 	ComponentId      string `url:"componentId,omitempty"`      // Description:"Component id",ExampleValue:"AU-Tpxb--iU5OvuD2FLy"
 	MetricKeys       string `url:"metricKeys,omitempty"`       // Description:"Comma-separated list of metric keys",ExampleValue:"ncloc,complexity,violations"
@@ -78,6 +79,7 @@ func (s *MeasuresService) Component(opt *MeasuresComponentOption) (v *MeasuresCo
 type MeasuresComponentTreeOption struct {
 	AdditionalFields string `url:"additionalFields,omitempty"` // Description:"Comma-separated list of additional fields that can be returned in the response.",ExampleValue:"periods,metrics"
 	Asc              string `url:"asc,omitempty"`              // Description:"Ascending sort",ExampleValue:""
+	Branch           string `url:"branch,omitempty"`           // Description:"Branch key. Not available in the community edition.",ExampleValue:"feature/my_branch"
 	BaseComponentId  string `url:"baseComponentId,omitempty"`  // Description:"Base component id. The search is based on this component.",ExampleValue:"AU-TpxcA-iU5OvuD2FLz"
 	Component        string `url:"component,omitempty"`        // Description:"Component key. The search is based on this component.",ExampleValue:"my_project"
 	MetricKeys       string `url:"metricKeys,omitempty"`       // Description:"Comma-separated list of metric keys. Types DISTRIB, DATA are not allowed.",ExampleValue:"ncloc,complexity,violations"
@@ -111,6 +113,7 @@ func (s *MeasuresService) ComponentTree(opt *MeasuresComponentTreeOption) (v *Me
 }
 
 type MeasuresSearchHistoryOption struct {
+	Branch    string `url:"branch,omitempty"`    // Description:"Branch key. Not available in the community edition.",ExampleValue:"feature/my_branch"
 	Component string `url:"component,omitempty"` // Description:"Component key",ExampleValue:"my_project"
 	From      string `url:"from,omitempty"`      // Description:"Filter measures created after the given date (inclusive). <br>Either a date (server timezone) or datetime can be provided",ExampleValue:"2017-10-19 or 2017-10-19T13:00:00+0200"
 	Metrics   string `url:"metrics,omitempty"`   // Description:"Comma-separated list of metric keys",ExampleValue:"ncloc,coverage,new_violations"

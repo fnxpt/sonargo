@@ -72,6 +72,7 @@ func (s *ComponentsService) Search(opt *ComponentsSearchOption) (v *ComponentsSe
 }
 
 type ComponentsShowOption struct {
+	Branch      string `url:"branch,omitempty"`      // Description:"Branch key. Not available in the community edition.",ExampleValue:"feature/my_branch"
 	Component   string `url:"component,omitempty"`   // Description:"Component key",ExampleValue:"my_project"
 	ComponentId string `url:"componentId,omitempty"` // Description:"Component id",ExampleValue:"AU-Tpxb--iU5OvuD2FLy"
 }
@@ -96,6 +97,7 @@ func (s *ComponentsService) Show(opt *ComponentsShowOption) (v *ComponentsShowOb
 
 type ComponentsTreeOption struct {
 	Asc         string `url:"asc,omitempty"`         // Description:"Ascending sort",ExampleValue:""
+	Branch      string `url:"branch,omitempty"`      // Description:"Branch key. Not available in the community edition.",ExampleValue:"feature/my_branch"
 	Component   string `url:"component,omitempty"`   // Description:"Base component key. The search is based on this component.",ExampleValue:"my_project"
 	ComponentId string `url:"componentId,omitempty"` // Description:"Base component id. The search is based on this component.",ExampleValue:"AU-TpxcA-iU5OvuD2FLz"
 	P           string `url:"p,omitempty"`           // Description:"1-based page number",ExampleValue:"42"
