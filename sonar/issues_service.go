@@ -26,18 +26,27 @@ type IssuesAddCommentObject struct {
 	Users      []*User      `json:"users,omitempty"`
 }
 
+type IssueFacet struct {
+	Property string             `json:"property,omitempty"`
+	Values   []*IssueFacetValue `json:"values,omitempty"`
+}
+type IssueFacetValue struct {
+	Val   string `json:"val,omitempty"`
+	Count int    `json:"count,omitempty"`
+}
+
 type IssuesSearchObject struct {
-	Components  []*Component `json:"components,omitempty"`
-	EffortTotal int          `json:"effortTotal,omitempty"`
-	DebtTotal   int          `json:"debtTotal,omitempty"`
-	Issues      []*Issue     `json:"issues,omitempty"`
-	P           int          `json:"p,omitempty"`
-	Ps          int          `json:"ps,omitempty"`
-	Paging      *Paging      `json:"paging,omitempty"`
-	Rules       []*Rule      `json:"rules,omitempty"`
-	Total       int          `json:"total,omitempty"`
-	Users       []*User      `json:"users,omitempty"`
-	Facets      []string     `json:"facets,omitempty"`
+	Components  []*Component  `json:"components,omitempty"`
+	EffortTotal int           `json:"effortTotal,omitempty"`
+	DebtTotal   int           `json:"debtTotal,omitempty"`
+	Issues      []*Issue      `json:"issues,omitempty"`
+	P           int           `json:"p,omitempty"`
+	Ps          int           `json:"ps,omitempty"`
+	Paging      *Paging       `json:"paging,omitempty"`
+	Rules       []*Rule       `json:"rules,omitempty"`
+	Total       int           `json:"total,omitempty"`
+	Users       []*User       `json:"users,omitempty"`
+	Facets      []*IssueFacet `json:"facets,omitempty"`
 }
 
 type Comment struct {
@@ -342,6 +351,7 @@ type IssuesSearchOption struct {
 	Tags                string `url:"tags,omitempty"`                // Description:"Comma-separated list of tags.",ExampleValue:"security,convention"
 	TimeZone            string `url:"timeZone,omitempty"`            // Description:"To resolve dates passed to 'createdAfter' or 'createdBefore' (does not apply to datetime) and to compute creation date histogram",ExampleValue:"'Europe/Paris', 'Z' or '+02:00'"
 	Types               string `url:"types,omitempty"`               // Description:"Comma-separated list of types.",ExampleValue:"CODE_SMELL,BUG"
+	Facets              string `url:"facets,omitempty"`              // Description:"Comma-separated list of the facets to be computed. No facet is computed by default.",ExampleValue:"severities,types"
 }
 
 // Search Search for issues.<br>At most one of the following parameters can be provided at the same time: componentKeys, componentUuids, components, componentRootUuids, componentRoots.<br>Requires the 'Browse' permission on the specified project(s).
