@@ -11,8 +11,6 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/magicsong/color-glog"
-
 	"github.com/google/go-querystring/query"
 )
 
