@@ -44,12 +44,6 @@
   version = "v1.1.5"
 
 [[projects]]
-  name = "github.com/magicsong/color-glog"
-  packages = ["."]
-  revision = "822fa9183c31bf121d424b799d8a35cd52e6f68e"
-  version = "v0.0.1"
-
-[[projects]]
   branch = "master"
   name = "github.com/magicsong/generate-go-for-sonarqube"
   packages = [
