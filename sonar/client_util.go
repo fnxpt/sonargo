@@ -91,7 +91,7 @@ func Do(c *http.Client, req *http.Request, v interface{}) (*http.Response, error
 		req.Header.Set("Accept", "text/plain")
 		isText = true
 	}
-	glog.V(1).Infof("[%s] %s\n", req.Method, req.URL.String())
+
 	resp, err := c.Do(req)
 	if err != nil {
 		return nil, err
